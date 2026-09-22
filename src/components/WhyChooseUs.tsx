@@ -1,4 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion';
+import type { Variants } from 'framer-motion';
 
 export default function WhyChooseUs() {
   const shouldReduceMotion = useReducedMotion();
@@ -30,7 +31,7 @@ export default function WhyChooseUs() {
     }
   ];
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -40,7 +41,7 @@ export default function WhyChooseUs() {
     }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 25 },
     visible: {
       opacity: 1,
