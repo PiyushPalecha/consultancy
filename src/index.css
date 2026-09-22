@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #0B1F33;
+  --color-primary-light: #173A59;
+  --color-accent: #B89B5E;
+  --color-background: #F7F5F0;
+  --color-charcoal: #17202A;
+  --color-charcoal-light: #66717C;
+  
+  --font-heading: 'Playfair Display', 'Cormorant Garamond', serif;
+  --font-body: 'Inter', 'Manrope', sans-serif;
+  
+  --shadow-soft: 0 4px 20px -2px rgba(11, 31, 51, 0.05);
+  --shadow-premium: 0 10px 40px -10px rgba(11, 31, 51, 0.08);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background-color: var(--color-background);
+    color: var(--color-charcoal);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body ::selection {
+    background-color: var(--color-accent);
+    color: white;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
