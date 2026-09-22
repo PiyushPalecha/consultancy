@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { client } from '../config/client';
-import { Phone, Mail, MessageCircle } from 'lucide-react';
+import { Phone, Mail, MessageCircle, MapPin } from 'lucide-react';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -50,54 +50,49 @@ export default function Contact() {
           <p className="text-lg text-charcoal-light">
             Have a question about protection, savings, retirement or your existing policy? Start with a conversation.
           </p>
+          
+          <div className="mt-8 flex flex-wrap justify-center gap-6 md:gap-12">
+            <a href={`tel:+91${client.phonePrimary}`} className="flex items-center text-charcoal hover:text-primary transition-colors">
+              <Phone size={20} className="text-accent mr-3" />
+              <span className="font-medium">{client.phonePrimary}</span>
+            </a>
+            <a href={`mailto:${client.email}`} className="flex items-center text-charcoal hover:text-primary transition-colors">
+              <Mail size={20} className="text-accent mr-3" />
+              <span className="font-medium">{client.email}</span>
+            </a>
+            <a href={`https://wa.me/${client.whatsapp}`} target="_blank" rel="noopener noreferrer" className="flex items-center text-charcoal hover:text-[#25D366] transition-colors">
+              <MessageCircle size={20} className="text-accent hover:text-[#25D366] mr-3" />
+              <span className="font-medium">WhatsApp Us</span>
+            </a>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 bg-white rounded shadow-premium overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
           
-          {/* Left: Contact Info */}
-          <div className="lg:col-span-5 bg-primary text-white p-10 md:p-14 flex flex-col justify-between">
-            <div>
-              <h3 className="text-2xl font-heading font-semibold mb-2">{client.name}</h3>
-              <p className="text-accent text-sm tracking-widest uppercase mb-1">{client.designation}</p>
-              <p className="text-white/80 text-sm mb-2">{client.achievement}</p>
-              <p className="text-white/60 text-xs uppercase tracking-wide pb-8 border-b border-white/10 mb-8">{client.organization}</p>
-              
-              <div className="space-y-6">
-                <a href={`tel:+91${client.phonePrimary}`} className="flex items-start group">
-                  <Phone size={20} className="text-accent mt-1 mr-4 group-hover:scale-110 transition-transform" />
-                  <div>
-                    <p className="text-sm text-white/60 mb-0.5">Primary Phone</p>
-                    <p className="font-medium">{client.phonePrimary}</p>
-                  </div>
-                </a>
-                
-                <a href={`tel:+91${client.phoneSecondary}`} className="flex items-start group">
-                  <Phone size={20} className="text-accent mt-1 mr-4 group-hover:scale-110 transition-transform" />
-                  <div>
-                    <p className="text-sm text-white/60 mb-0.5">Secondary Phone</p>
-                    <p className="font-medium">{client.phoneSecondary}</p>
-                  </div>
-                </a>
-                
-                <a href={`mailto:${client.email}`} className="flex items-start group">
-                  <Mail size={20} className="text-accent mt-1 mr-4 group-hover:scale-110 transition-transform" />
-                  <div>
-                    <p className="text-sm text-white/60 mb-0.5">Email</p>
-                    <p className="font-medium">{client.email}</p>
-                  </div>
-                </a>
+          {/* Left: Map */}
+          <div className="lg:col-span-5 bg-white rounded-2xl shadow-premium overflow-hidden flex flex-col relative min-h-[400px]">
+            {client.googleMapsUrl === "ADD CLIENT GOOGLE MAPS LOCATION" || client.googleMapsUrl === "" ? (
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 bg-background">
+                <MapPin size={48} className="text-gray-300 mb-4" />
+                <p className="text-charcoal font-medium mb-2">Map Location Pending</p>
               </div>
-            </div>
-            
-            <div className="mt-16 pt-8 border-t border-white/10 flex flex-wrap gap-4">
-              <a href={`https://wa.me/${client.whatsapp}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-4 py-2 border border-white/20 rounded text-sm hover:bg-[#25D366] hover:border-[#25D366] transition-colors">
-                <MessageCircle size={16} className="mr-2" /> WhatsApp
-              </a>
-            </div>
+            ) : (
+              <iframe 
+                src={client.googleMapsUrl}
+                width="100%" 
+                height="100%" 
+                style={{ border: 0 }} 
+                allowFullScreen={true} 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Office Location"
+                className="absolute inset-0"
+              ></iframe>
+            )}
           </div>
           
           {/* Right: Form */}
-          <div className="lg:col-span-7 p-10 md:p-14">
+          <div className="lg:col-span-7 bg-white rounded-2xl shadow-premium p-8 md:p-12">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>

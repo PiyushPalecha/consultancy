@@ -12,7 +12,6 @@ import Achievement from './components/Achievement';
 import FAQ from './components/FAQ';
 import CTA from './components/CTA';
 import Contact from './components/Contact';
-import MapSection from './components/MapSection';
 import Footer from './components/Footer';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
 
@@ -34,7 +33,6 @@ function App() {
         <FAQ />
         <CTA />
         <Contact />
-        <MapSection />
       </main>
       
       <Footer />

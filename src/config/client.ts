@@ -1,5 +1,5 @@
 export const client = {
-  name: "Bhajan Shrimali",
+  name: "Shreeji Consultancy",
   designation: "M.D.R.T. (USA)",
   achievement: "COT (Court of the Table) Agent",
   organization: "Life Insurance Corporation of India",

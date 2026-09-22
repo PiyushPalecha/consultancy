@@ -12,10 +12,8 @@ export default function Footer() {
           
           {/* Column 1: Identity */}
           <div className="lg:col-span-1">
-            <a href="#home" className="inline-block mb-6">
-              <span className="font-heading text-3xl font-bold text-white leading-none">
-                BS<span className="text-accent">.</span>
-              </span>
+            <a href="#home" className="inline-block mb-6 bg-white p-2 rounded">
+              <img src="/images/Logo.png" alt={client.name} className="h-14 w-auto object-contain" />
             </a>
             <h4 className="font-heading text-lg font-semibold mb-1">{client.name}</h4>
             <p className="text-accent text-xs tracking-widest uppercase mb-1">{client.designation}</p>

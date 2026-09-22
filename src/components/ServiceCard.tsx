@@ -17,21 +17,21 @@ export default function ServiceCard({ title, description, features, cta, icon: I
 
   if (variant === 'featured') {
     return (
-      <div className="group bg-white p-8 md:p-10 border border-gray-100 rounded-sm shadow-sm hover:shadow-premium hover:-translate-y-1 transition-all duration-300 flex flex-col h-full relative overflow-hidden">
+      <div className="group bg-white p-8 md:p-10 border border-gray-100/80 rounded-2xl shadow-sm hover:shadow-premium hover:-translate-y-1.5 transition-all duration-500 flex flex-col h-full relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-1 bg-accent transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
         
-        <div className="w-14 h-14 bg-background rounded-full flex items-center justify-center mb-6 text-primary group-hover:scale-110 group-hover:text-accent transition-all duration-300">
-          <Icon size={26} strokeWidth={1.5} />
+        <div className="w-14 h-14 bg-accent/10 rounded-full flex items-center justify-center mb-6 text-accent group-hover:scale-110 group-hover:bg-accent group-hover:text-white transition-all duration-300">
+          <Icon size={28} strokeWidth={1.5} />
         </div>
         
         <h3 className="text-xl font-heading font-semibold text-primary mb-4 pr-4">{title}</h3>
         <p className="text-charcoal-light mb-8 leading-relaxed flex-grow">{description}</p>
         
         <div className="mt-auto">
-          <ul className="space-y-2.5">
+          <ul className="space-y-3">
             {features.map((feature, idx) => (
               <li key={idx} className="flex items-start text-sm text-charcoal">
-                <span className="text-accent mr-2 mt-0.5">•</span>
+                <div className="mt-1 mr-3 w-1.5 h-1.5 rounded-full bg-accent shrink-0"></div>
                 <span>{feature}</span>
               </li>
             ))}
@@ -72,20 +72,20 @@ export default function ServiceCard({ title, description, features, cta, icon: I
   }
 
   return (
-    <div className="group bg-background p-6 md:p-8 rounded-sm hover:bg-white border border-transparent hover:border-gray-100 hover:shadow-premium hover:-translate-y-1 transition-all duration-300 h-full flex flex-col">
-      <div className="flex items-center mb-5">
-        <div className="w-10 h-10 bg-white group-hover:bg-background rounded-full flex items-center justify-center mr-4 text-primary transition-colors">
-          <Icon size={20} strokeWidth={1.5} />
+    <div 
+      className="group bg-white p-8 rounded-2xl border border-gray-100/80 shadow-sm hover:shadow-premium hover:-translate-y-1.5 transition-all duration-500 h-full flex flex-col relative overflow-hidden cursor-pointer" 
+      onClick={handleScrollToContact}
+    >
+      <div className="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-bl-[100px] -mr-4 -mt-4 transition-transform duration-500 group-hover:scale-[1.8] pointer-events-none"></div>
+      
+      <div className="flex flex-col mb-5 relative z-10">
+        <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-6 text-accent group-hover:bg-accent group-hover:text-white transition-colors duration-300">
+          <Icon size={24} strokeWidth={1.5} />
         </div>
-        <h3 className="font-heading font-semibold text-primary leading-tight flex-1">{title}</h3>
+        <h3 className="font-heading text-lg font-semibold text-primary leading-tight">{title}</h3>
       </div>
       
-      <p className="text-sm text-charcoal-light mb-6 flex-grow">{description}</p>
-      
-      <button onClick={handleScrollToContact} className="inline-flex items-center text-primary text-xs font-semibold uppercase tracking-wider hover:text-accent transition-colors mt-auto group/link cursor-pointer">
-        {cta}
-        <ArrowRight size={14} className="ml-1.5 group-hover/link:translate-x-1 transition-transform" />
-      </button>
+      <p className="text-sm text-charcoal-light leading-relaxed flex-grow relative z-10">{description}</p>
     </div>
   );
 }

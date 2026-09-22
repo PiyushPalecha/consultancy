@@ -9,7 +9,7 @@ export default function TrustStrip() {
   return (
     <div className="bg-primary text-white py-12 border-b border-primary-light/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         <div className="text-center mb-10">
           <p className="font-heading italic text-xl md:text-2xl text-accent">
             Guidance built around protection, planning and long-term confidence.
@@ -29,7 +29,7 @@ export default function TrustStrip() {
             </div>
           ))}
         </div>
-        
+
       </div>
     </div>
   );

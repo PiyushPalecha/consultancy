@@ -52,13 +52,8 @@ export default function Navbar() {
           
           {/* Logo */}
           <div className="flex items-center">
-            <a href="#home" className="flex flex-col">
-              <span className="font-heading text-2xl font-bold text-primary leading-none">
-                BS<span className="text-accent">.</span>
-              </span>
-              <span className="text-[10px] font-semibold uppercase tracking-widest text-primary-light mt-1 hidden sm:block">
-                {client.name}
-              </span>
+            <a href="#home" className="flex items-center gap-2">
+              <img src="/images/Logo.png" alt={client.name} className="h-10 md:h-12 w-auto object-contain" />
             </a>
           </div>
 

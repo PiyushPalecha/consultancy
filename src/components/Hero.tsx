@@ -63,7 +63,7 @@ export default function Hero() {
           >
             <div className="relative aspect-[4/5] rounded-t-full rounded-b-md overflow-hidden border-4 border-white shadow-premium">
               <img 
-                src="/images/Hero_LIC.png" 
+                src="/images/LIC.png" 
                 alt={client.name}
                 className="absolute inset-0 w-full h-full object-cover object-top" 
                 onError={(e) => {
