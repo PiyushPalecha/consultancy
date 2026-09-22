@@ -1,5 +1,5 @@
 import { client } from '../config/client';
-import { ArrowRight, PhoneCall } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function Hero() {
